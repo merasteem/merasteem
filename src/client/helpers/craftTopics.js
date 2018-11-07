@@ -1,0 +1,18 @@
+export default [
+    'art',
+	'beads',
+	'cards',
+	'clay',
+	'crochet',
+	'embroidery',
+	'fashion',
+	'gifts',
+	'jewelery',
+	'knitting',
+	'leather',
+	'mason-jars',
+	'paper',
+	'print-making',
+	'sewing',
+    'vase',
+];
