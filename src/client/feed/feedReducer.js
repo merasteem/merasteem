@@ -25,13 +25,13 @@ const feedIdsList = (state = [], action) => {
     case feedTypes.GET_BOOKMARKS.START:
       return [];
     case feedTypes.GET_FEED_CONTENT.SUCCESS:
-    case feedTypes.GET_USER_COMMENTS.SUCCESS:
-    case feedTypes.GET_REPLIES.SUCCESS:
-    case feedTypes.GET_BOOKMARKS.SUCCESS:
-      return action.payload.map(post => post.id);
     case feedTypes.GET_MORE_FEED_CONTENT.SUCCESS:
+    case feedTypes.GET_USER_COMMENTS.SUCCESS:
     case feedTypes.GET_MORE_USER_COMMENTS.SUCCESS:
+    case feedTypes.GET_REPLIES.SUCCESS:
     case feedTypes.GET_MORE_REPLIES.SUCCESS:
+      return _.uniq([...state, ...action.payload.map(post => post.id)]);
+    case feedTypes.GET_BOOKMARKS.SUCCESS:
       return _.uniq([...state, ...action.payload.map(post => post.id)]);
     default:
       return state;
