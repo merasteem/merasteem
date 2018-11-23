@@ -65,11 +65,12 @@ class SubFeed extends React.Component {
     if (!loaded && Cookie.get('access_token')) return;
 
     if (match.url === '/' && authenticated) {
+      const sortBy = match.params.sortBy || 'created';
       const fetched = getUserFeedFetchedFromState(user.name, feed);
       if (fetched) return;
       this.props.getFeedContent('feed', user.name);
     } else {
-      const sortBy = match.params.sortBy || 'trending';
+      const sortBy = match.params.sortBy || 'created';
       const fetched = getFeedFetchedFromState(sortBy, category, feed);
       if (fetched) return;
       this.props.getFeedContent(sortBy, category);
@@ -79,7 +80,7 @@ class SubFeed extends React.Component {
   componentWillReceiveProps(nextProps) {
     const { authenticated, loaded, user, match, feed } = nextProps;
     const oldSortBy = this.props.match.params.sortBy;
-    const newSortBy = match.params.sortBy;
+    const newSortBy = match.params.sortBy || 'created';
     const oldCategory = this.props.match.params.category;
     const newCategory = match.params.category;
     const wasAuthenticated = this.props.authenticated;
@@ -124,7 +125,7 @@ class SubFeed extends React.Component {
       failed = getUserFeedFailedFromState(user.name, feed);
       loadMoreContent = () => this.props.getMoreFeedContent('feed', user.name);
     } else {
-      const sortBy = match.params.sortBy || 'trending';
+      const sortBy = match.params.sortBy || 'created';
       content = getFeedFromState(sortBy, match.params.category, feed);
       isFetching = getFeedLoadingFromState(sortBy, match.params.category, feed);
       fetched = getFeedFetchedFromState(sortBy, match.params.category, feed);

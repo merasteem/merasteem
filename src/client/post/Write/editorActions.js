@@ -179,7 +179,7 @@ export function createPost(postData) {
       : createPermlink(title, author, parentAuthor, parentPermlink);
     const state = getState();
     const authUser = state.auth.user;
-    const newBody = isUpdating ? getBodyPatchIfSmaller(postData.originalBody, body) : body;
+    const newBody = isUpdating ? getBodyPatchIfSmaller(postData.originalBody, body) : body + '<br/><div class="pull-right promo"><sub>' +'<p>This comment was made from <a href="https://www.merasteem.com" target="_blank">Merasteem</a></p></sub></div>';
 
     dispatch(saveSettings({ upvoteSetting: upvote, rewardSetting: reward }));
 

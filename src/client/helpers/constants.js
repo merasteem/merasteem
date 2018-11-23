@@ -27,6 +27,7 @@ export const people = [
   'doitvoluntarily',
   'sirwinchester',
   'sweetsssj',
+  'merasteem',
   'kevinwong',
   'jrcornel',
   'thecryptofiend',
