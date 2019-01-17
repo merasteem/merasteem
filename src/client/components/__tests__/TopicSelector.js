@@ -5,10 +5,10 @@ import TopicSelector from '../TopicSelector';
 describe('<TopicSelector />', () => {
   it('renders without exploding', () => {
     const props = {
-      sort: 'active',
+      sort: 'trending',
       isSingle: true,
       bold: true,
-      topics: ['busy', 'introduceyourself', 'steemfest'],
+      topics: ['merasteem', 'introduceyourself', 'steemfest'],
     };
     const wrapper = shallow(<TopicSelector {...props} />);
     expect(wrapper).toMatchSnapshot();

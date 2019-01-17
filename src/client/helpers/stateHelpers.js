@@ -3,7 +3,6 @@ export const getFeedFromState = (sortBy, category = 'merasteem', state) => {
     case 'feed':
     case 'hot':
     case 'created':
-    case 'active':
     case 'trending':
     case 'comments':
     case 'blog':
@@ -22,7 +21,6 @@ export const getFeedLoadingFromState = (sortBy, category = 'merasteem', feedStat
     case 'feed':
     case 'hot':
     case 'created':
-    case 'active':
     case 'trending':
     case 'comments':
     case 'blog':
@@ -41,7 +39,6 @@ export const getFeedFetchedFromState = (sortBy, category = 'merasteem', feedStat
     case 'feed':
     case 'hot':
     case 'created':
-    case 'active':
     case 'trending':
     case 'comments':
     case 'blog':
@@ -61,7 +58,6 @@ export const getFeedHasMoreFromState = (sortBy, listName = 'merasteem', feedStat
     case 'hot':
     case 'cashout':
     case 'created':
-    case 'active':
     case 'trending':
     case 'comments':
     case 'blog':
@@ -81,7 +77,6 @@ export const getFeedFailedFromState = (sortBy, listName = 'merasteem', feedState
     case 'hot':
     case 'cashout':
     case 'created':
-    case 'active':
     case 'trending':
     case 'comments':
     case 'blog':
@@ -148,3 +143,4 @@ export const createAsyncActionType = type => ({
 });
 
 export const getUserDetailsKey = username => `user-${username}`;
+export const getPostKey = post => `${post.author}/${post.permlink}`;
