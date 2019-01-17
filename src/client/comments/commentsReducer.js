@@ -32,7 +32,9 @@ const mapCommentsBasedOnId = (data, action) => {
     ) {
       comment.focus = true;
     }
+
     const newKey = getPostKey(data[key]);
+
     commentsList[newKey] = { ...comment, id: newKey };
   });
   return commentsList;
@@ -45,7 +47,7 @@ const commentsData = (state = {}, action) => {
         ...state,
         ...mapCommentsBasedOnId(action.payload.content, action),
       };
-    case commentsTypes.RELOAD_EXISTING_COMMENT:{
+    case commentsTypes.RELOAD_EXISTING_COMMENT: {
       const key = getPostKey(action.payload);
 
       return {
